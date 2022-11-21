@@ -13,7 +13,7 @@ final class ViewController: UIViewController {
   
   private let textCountLimit = 18
   
-  private var operands = Stack<Double>()
+  private var operands = Stack<Double>(capacity: 5)
   
   private var currentNumber: Double { Double(currentNumberLabel.text ?? "") ?? 0 }
   
@@ -35,9 +35,7 @@ final class ViewController: UIViewController {
   
   @IBAction func pressNumber(_ sender: UIButton) {
     guard let buttonTitle = sender.titleLabel?.text,
-          let number = Int(buttonTitle.trimmingCharacters(in: .whitespaces)) else {
-      return
-    }
+          let number = Int(buttonTitle.trimmingCharacters(in: .whitespaces)) else { return }
     updateCurrentNumber(with: CalculatorInput.number(number))
   }
   
@@ -54,7 +52,6 @@ final class ViewController: UIViewController {
   }
   
   @IBAction func pressResult(_ sender: Any) {
-    print(#function)
     updateOperandStack()
     latestOperator = nil
     clearInput()
@@ -64,12 +61,7 @@ final class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(#function)
     resetAll()
-    
-    frameLabels.enumerated().forEach {
-      print($0, "번째", $1.text ?? "?")
-    }
   }
   
   // MARK: Private Methods
@@ -77,7 +69,8 @@ final class ViewController: UIViewController {
   private func updateCurrentNumber(with input: CalculatorInput) {
     guard var current = currentNumberLabel.text else { return }
     guard current.count + 1 <= textCountLimit else {
-      showNumberCountLimitAlert()
+      let message = "소수점 포함 \(textCountLimit)자리까지 입력할 수 있어요."
+      showAlert(with: message)
       return
     }
     switch input {
@@ -94,14 +87,19 @@ final class ViewController: UIViewController {
   }
   
   private func updateOperandStack() {
+    var new = Double()
     if let op = latestOperator, let lhs = operands.pop()  {
       let rhs = currentNumber
-      let result = op.operation(lhs, rhs)
-      operands.push(result)
+      new = op.operation(lhs, rhs)
     } else {
-      operands.push(currentNumber)
+      new = currentNumber
     }
-    
+    guard operands.canPush else {
+      let message = "숫자는 \(5)개까지 보관할 수 있어요.\n최근 계산 내역은 저장되지 않아요."
+      showAlert(with: message)
+      return
+    }
+    operands.push(new)
     updateStackFrame()
   }
   
@@ -130,9 +128,9 @@ final class ViewController: UIViewController {
     decimalPointButton.isEnabled = !current.contains(".")
   }
   
-  private func showNumberCountLimitAlert() {
+  private func showAlert(with message: String) {
     let alertController = UIAlertController(title: "알림",
-                                  message: "소수점 포함 \(textCountLimit)자리까지 입력할 수 있어요",
+                                  message: message,
                                   preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "알겠어요", style: .default))
     show(alertController, sender: nil)
@@ -193,14 +191,26 @@ enum ArithmeticOperator: Int {
 }
 
 struct Stack<Element> {
-  private var values: [Element] = []
+  private var values: [Element]
+  
+  private let capacity: Int?
   
   var count: Int { return values.count }
   
   var isEmpty: Bool { return values.isEmpty }
   
+  public var canPush: Bool {
+    if let capacity = capacity { return count < capacity }
+    return true
+  }
+  
+  init(capacity: Int) {
+    self.capacity = capacity
+    self.values = []
+  }
+  
   mutating func push(_ element: Element) {
-    values.append(element)
+    if canPush { values.append(element) }
   }
   
   mutating func pop() -> Element? {
