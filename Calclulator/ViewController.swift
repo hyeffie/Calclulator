@@ -143,8 +143,15 @@ final class ViewController: UIViewController {
     updateNumberPad()
   }
   
+  override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+    if event?.subtype == .motionShake {
+      resetAll()
+    }
+  }
+  
   private func resetAll() {
     operands.resetAll()
+    updateStackFrame()
     clearInput()
   }
   
