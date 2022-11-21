@@ -39,6 +39,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="7">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QjX-BT-YSH"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4D-Ji-PFb">
                                                         <rect key="frame" x="89.666666666666686" y="0.0" width="84.333333333333314" height="101.66666666666667"/>
@@ -48,6 +51,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="8">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sy3-Ef-JpU"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oc-BF-V4G">
                                                         <rect key="frame" x="179" y="0.0" width="84.666666666666686" height="101.66666666666667"/>
@@ -57,6 +63,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="9">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zT1-IK-glk"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgG-LX-EPt">
                                                         <rect key="frame" x="268.66666666666669" y="0.0" width="84.333333333333314" height="101.66666666666667"/>
@@ -66,6 +75,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="/">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IIa-Uo-9vF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -80,6 +92,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="4">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LRN-Dn-H42"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8L-M4-hnM">
                                                         <rect key="frame" x="89.666666666666686" y="0.0" width="84.333333333333314" height="101.33333333333333"/>
@@ -89,6 +104,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="5">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A8E-uc-seX"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sL1-rT-FhJ">
                                                         <rect key="frame" x="179" y="0.0" width="84.666666666666686" height="101.33333333333333"/>
@@ -98,15 +116,21 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="6">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lTV-xY-8cA"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeZ-F1-m1v">
                                                         <rect key="frame" x="268.66666666666669" y="0.0" width="84.333333333333314" height="101.33333333333333"/>
                                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="x">
+                                                        <buttonConfiguration key="configuration" style="plain" title="*">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pFe-wO-jax"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -121,6 +145,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="1">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="epr-LF-s9m"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSA-cJ-M9f">
                                                         <rect key="frame" x="89.666666666666686" y="0.0" width="84.333333333333314" height="101.66666666666667"/>
@@ -130,6 +157,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="2">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="54U-ld-XjV"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngK-c0-R7x">
                                                         <rect key="frame" x="179" y="0.0" width="84.666666666666686" height="101.66666666666667"/>
@@ -139,6 +169,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="3">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8fo-No-UN1"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcF-bx-T9A">
                                                         <rect key="frame" x="268.66666666666669" y="0.0" width="84.333333333333314" height="101.66666666666667"/>
@@ -148,6 +181,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="-">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RPc-Le-P7f"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -162,6 +198,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="0">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7a-u1-VCA"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4D-Jv-9Bb">
                                                         <rect key="frame" x="89.666666666666686" y="0.0" width="84.333333333333314" height="101.33333333333333"/>
@@ -171,6 +210,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title=".">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressDecimalPoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6De-kK-RQS"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qme-6R-dId">
                                                         <rect key="frame" x="179" y="0.0" width="84.666666666666686" height="101.33333333333333"/>
@@ -180,6 +222,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="=">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressResult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G7M-Pm-qx8"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pg7-1y-18d">
                                                         <rect key="frame" x="268.66666666666669" y="0.0" width="84.333333333333314" height="101.33333333333333"/>
@@ -189,6 +234,9 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="+">
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="40"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="pressOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XKP-Av-g5o"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -200,7 +248,7 @@
                                             <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="3N5-IL-dgN">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-vM-ZFC">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack 5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-vM-ZFC">
                                                         <rect key="frame" x="10" y="5" width="333" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,7 +266,7 @@
                                             <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="yq6-Ds-KM2">
                                                 <rect key="frame" x="0.0" y="58" width="353" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1o-Zw-0jg">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1o-Zw-0jg">
                                                         <rect key="frame" x="10" y="5" width="333" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -236,7 +284,7 @@
                                             <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="bjZ-ep-7ZH">
                                                 <rect key="frame" x="0.0" y="116" width="353" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-54-M0m">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-54-M0m">
                                                         <rect key="frame" x="10" y="5" width="333" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -254,7 +302,7 @@
                                             <view contentMode="scaleToFill" verticalHuggingPriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="9wp-bf-iko">
                                                 <rect key="frame" x="0.0" y="174" width="353" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpZ-Fc-6aF">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpZ-Fc-6aF">
                                                         <rect key="frame" x="10" y="5" width="333" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -301,6 +349,21 @@
                             <constraint firstItem="Ymx-yr-5IS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="o2u-P3-TMx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentNumberLabel" destination="8Bp-po-Ysz" id="epb-M9-QLt"/>
+                        <outlet property="decimalPointButton" destination="w4D-Jv-9Bb" id="Mqv-Rq-xfL"/>
+                        <outlet property="zeroButton" destination="oXO-gc-FX1" id="eqd-4v-eI9"/>
+                        <outletCollection property="frameViews" destination="4BS-FJ-sKF" collectionClass="NSMutableArray" id="yGM-bM-QLc"/>
+                        <outletCollection property="frameViews" destination="9wp-bf-iko" collectionClass="NSMutableArray" id="UN3-0I-GOv"/>
+                        <outletCollection property="frameViews" destination="bjZ-ep-7ZH" collectionClass="NSMutableArray" id="f5t-tm-dlM"/>
+                        <outletCollection property="frameViews" destination="yq6-Ds-KM2" collectionClass="NSMutableArray" id="Dc1-Z0-1rM"/>
+                        <outletCollection property="frameViews" destination="3N5-IL-dgN" collectionClass="NSMutableArray" id="DWy-fP-eO7"/>
+                        <outletCollection property="frameLabels" destination="DCl-wM-X6S" collectionClass="NSMutableArray" id="abT-r6-d1f"/>
+                        <outletCollection property="frameLabels" destination="HpZ-Fc-6aF" collectionClass="NSMutableArray" id="Lg5-Zg-jft"/>
+                        <outletCollection property="frameLabels" destination="sd5-54-M0m" collectionClass="NSMutableArray" id="rqr-Ds-I5S"/>
+                        <outletCollection property="frameLabels" destination="a1o-Zw-0jg" collectionClass="NSMutableArray" id="exo-HL-WuQ"/>
+                        <outletCollection property="frameLabels" destination="UVn-vM-ZFC" collectionClass="NSMutableArray" id="htz-pK-eYm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="mtf-SG-g19">
