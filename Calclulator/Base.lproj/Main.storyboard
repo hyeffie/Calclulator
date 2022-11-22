@@ -108,7 +108,7 @@
                                                             <action selector="pressNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A8E-uc-seX"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sL1-rT-FhJ">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sL1-rT-FhJ">
                                                         <rect key="frame" x="179" y="0.0" width="84.666666666666686" height="101.33333333333333"/>
                                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                         <color key="tintColor" systemColor="labelColor"/>
