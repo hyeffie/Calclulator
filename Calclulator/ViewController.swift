@@ -11,13 +11,9 @@ final class ViewController: UIViewController {
   
   // MARK: Properties
   
-  private let textCountLimit = 18
-  
-  private var operands = Stack<Double>(capacity: 5)
+  private lazy var calculator: Calculator = Calculator(stackCapacity: 5, maxNumberLength: 18)
   
   private var currentNumber: Double { Double(currentNumberLabel.text ?? "") ?? 0 }
-  
-  private var latestOperator: ArithmeticOperator? = nil
   
   // MARK: Outlets
   
@@ -34,26 +30,24 @@ final class ViewController: UIViewController {
   // MARK: Actions Methods
   
   @IBAction func pressNumber(_ sender: UIButton) {
-    guard let buttonTitle = sender.titleLabel?.text,
-          let number = Int(buttonTitle.trimmingCharacters(in: .whitespaces)) else { return }
-    updateCurrentNumber(with: CalculatorInput.number(number))
+    updateCurrentNumber(with: .number(sender.tag))
   }
   
   @IBAction func pressDecimalPoint(_ sender: UIButton) {
-    updateCurrentNumber(with: CalculatorInput.decimalPoint)
+    updateCurrentNumber(with: .decimalPoint)
   }
   
   @IBAction func pressOperator(_ sender: UIButton) {
     guard let buttonTitle = sender.titleLabel?.text,
           let op = ArithmeticOperator.parse(buttonTitle.trimmingCharacters(in: .whitespaces)) else { return }
-    updateOperandStack()
-    latestOperator = op
+    updateCalculatorStack()
+    calculator.latestOperator = op
     clearInput()
   }
   
   @IBAction func pressResult(_ sender: Any) {
-    updateOperandStack()
-    latestOperator = nil
+    updateCalculatorStack()
+    calculator.latestOperator = nil
     clearInput()
   }
   
@@ -68,11 +62,7 @@ final class ViewController: UIViewController {
   
   private func updateCurrentNumber(with input: CalculatorInput) {
     guard var current = currentNumberLabel.text else { return }
-    guard current.count + 1 <= textCountLimit else {
-      let message = "소수점 포함 \(textCountLimit)자리까지 입력할 수 있어요."
-      showAlert(with: message)
-      return
-    }
+    #warning("자리수 제한을 위반하려할 때 핸들링")
     switch input {
     case .number(let value):
       if current == "0" {
@@ -86,33 +76,16 @@ final class ViewController: UIViewController {
     updateNumberPad()
   }
   
-  private func updateOperandStack() {
-    var new = Double()
-    if let op = latestOperator, let lhs = operands.pop()  {
-      let rhs = currentNumber
-      new = op.operation(lhs, rhs)
-    } else {
-      new = currentNumber
-    }
-    guard operands.canPush else {
-      let message = "숫자는 \(5)개까지 보관할 수 있어요.\n최근 계산 내역은 저장되지 않아요."
-      showAlert(with: message)
-      return
-    }
-    operands.push(new)
-    updateStackFrame()
+  private func updateCalculatorStack() {
+    let result = calculator.calcuate(with: currentNumber)
+    #warning("스택 개수 제한을 위반하려할 때 핸들링")
+    updateStackFrame(with: result)
   }
   
-  private func updateStackFrame() {
-    var copy = operands
-    var arr: [Double] = []
-    while true {
-      guard let item = copy.pop() else { break }
-      arr.insert(item, at: 0)
-    }
+  private func updateStackFrame(with values: [Double]) {
     for index in 0 ..< frameLabels.count {
-      if index < arr.count {
-        frameLabels[index].text = String(format: "%.15f", arr[index]) // "\(operand)"
+      if index < values.count {
+        frameLabels[index].text = String(format: "%.15f", values[index]) // "\(operand)"
         frameViews[index].layer.borderWidth = 3
         frameViews[index].layer.borderColor = UIColor.systemGray2.cgColor
       } else {
@@ -128,100 +101,18 @@ final class ViewController: UIViewController {
     decimalPointButton.isEnabled = !current.contains(".")
   }
   
-  private func showAlert(with message: String) {
-    let alertController = UIAlertController(title: "알림",
-                                  message: message,
-                                  preferredStyle: .alert)
-    alertController.addAction(UIAlertAction(title: "알겠어요", style: .default))
-    show(alertController, sender: nil)
-  }
-  
   private func clearInput() {
     currentNumberLabel.text = "0"
     updateNumberPad()
   }
   
-  override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-    if event?.subtype == .motionShake {
-      resetAll()
-    }
-  }
-  
   private func resetAll() {
-    operands.resetAll()
-    updateStackFrame()
+    updateStackFrame(with: calculator.reset())
     clearInput()
   }
   
-}
-
-enum CalculatorInput {
-  case number(Int)
-  case decimalPoint
-  
-  var output: String {
-    switch self {
-    case .decimalPoint: return "."
-    case .number(let value): return "\(value)"
-    }
-  }
-}
-
-enum ArithmeticOperator: Int {
-  case add, subtract, multiply, divide
-  
-  var operation: (Double, Double) -> Double {
-    switch self {
-    case .add: return { $0 + $1 }
-    case .subtract: return { $0 - $1 }
-    case .multiply: return { $0 * $1 }
-    case .divide: return { $0 / $1 }
-    }
+  override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+    if event?.subtype == .motionShake { resetAll() }
   }
   
-  static func parse(_ symbol: String) -> Self? {
-    switch symbol {
-    case "+": return .add
-    case "-": return .subtract
-    case "*": return .multiply
-    case "/": return .divide
-    default: return nil
-    }
-  }
-}
-
-struct Stack<Element> {
-  private var values: [Element]
-  
-  private let capacity: Int?
-  
-  var count: Int { return values.count }
-  
-  var isEmpty: Bool { return values.isEmpty }
-  
-  public var canPush: Bool {
-    if let capacity = capacity { return count < capacity }
-    return true
-  }
-  
-  init(capacity: Int) {
-    self.capacity = capacity
-    self.values = []
-  }
-  
-  mutating func push(_ element: Element) {
-    if canPush { values.append(element) }
-  }
-  
-  mutating func pop() -> Element? {
-    values.popLast()
-  }
-  
-  func peek() -> Element? {
-    values.last
-  }
-  
-  mutating func resetAll() {
-    values.removeAll()
-  }
 }
